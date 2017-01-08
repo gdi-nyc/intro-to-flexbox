@@ -1,0 +1,13 @@
+.column-left {
+	float:left;
+	width:48%;
+}
+
+.column-right {
+	float:left;
+	width:48%;
+}
+
+.column-right p {
+	margin:15px;
+}

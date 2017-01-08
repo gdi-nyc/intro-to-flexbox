@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Flexbox Layouts</title>
+        <meta name="description" content="This is the official Girl Develop It Core Flexbox Layouts course. Material was originally developed by Lisa Burgess. The course is meant to be taught in a single 2.5 hour workshop.">
+        <meta name="author" content="Girl Develop It">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/gdilight.css" id="theme">
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/dark.css">
+
+        <!-- If use the PDF print sheet so students can print slides-->
+        <link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal linear">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h2>Flexbox Layouts</h2>
+                    <img src="images/gdi_logo_badge.png" alt="" />
+                </section>
+
+
+                <section>
+                    <h2>Welcome!</h2>
+                    <div class="left-align">
+                        <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+                        <p>Some "rules"</p>
+                        <ul>
+                            <li>We are here for you!</li>
+                            <li>Every question is important</li>
+                            <li>Help each other</li>
+                            <li>Have fun</li>
+                        </ul>
+                    </div>
+                </section>
+
+
+                <section>
+                    <h2>Introductions</h2>
+                    <div class="left-align">
+                        <p>Tell us about yourself.</p>
+                        <ul>
+                            <li>Who are you?</li>
+                            <li>What do you hope to get out of the class?</li>
+                            <li>What is your favorite vacation spot and why?</li>
+                        </ul>
+                    </div>
+                </section>
+
+
+                <section>
+                    <h2>What we will cover</h2>
+                    <ul>
+                        <li class="fragment">What is the Flexible Box Model?</li>
+                        <li class="fragment">How to decide when to use Flexbox</li>
+                        <li class="fragment">Broswer support and fallbacks</li>
+                        <li class="fragment">Flexbox properties and what they do</li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h2>What to expect</h2>
+                    <ul>
+                        <li>Flexbox is a new way of thinking about layouts - this takes time and practice</li>
+                        <li>We will cover all the flexbox properties and also experiment on a "real" website</li>
+                    </ul>
+                   
+                    <!-- Speaker Notes -->
+                    <aside class="notes">The most important thing to learn is not the code but how to change the way you approach layouts in CSS.</aside>
+                </section>
+      
+
+                <section>
+                    <h2>What Is Flexbox?</h2>
+                    <blockquote class="left-align">"The CSS3 Flexible Box, or flexbox, is a <strong class="blue">layout mode</strong> providing for the arrangement of elements on a page such that the <strong class="blue">elements behave predictably</strong> when the page layout must accommodate <strong class="blue">different screen sizes and different display devices.</strong>"</blockquote>
+                    <p>- MDN (Mozilla Developer Network)</p>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">It's important to note what Flexbox is not. It is not a grid system (CSS grids is for that) and although it can be used for page layouts, it works best on building elements responsively.</aside>
+                </section>
+
+
+                <section>
+                    <h3>Flexbox is a CSS layout mode</h3>
+                        <ul>
+                            <li class="fragment left-align"><strong class="blue">Block layout:</strong> for stacked elements</li>
+                            <li class="fragment left-align"><strong class="blue">Inline layout:</strong> for text</li>
+                            <li class="fragment left-align"><strong class="blue">Table layout:</strong> for (you guessed it) tables </li>
+                            <li class="fragment left-align"><strong class="blue">Positioned layout:</strong> for elements without much interaction with other elements </li>
+                            <li class="fragment left-align"><strong class="blue">Flexbox layout:</strong> designed for coding responsive elements that can be resized smoothly </li>
+                        </ul>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">To understand Flexbox as a CSS layout, let's look at other modern CSS layouts and what they are used for.</aside>
+                </section>
+
+
+                <section>
+                    <h3>Floats</h3> 
+                    <p>...were originally meant to float text around an image.</p><br>
+                    <img style="border:none;" src="images/float.png">
+                    <p>...that's it.</p>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">Floats are not a layout system at all but developers found how useful they could be in laying out elements inline to each other and hacked it to be a layout system similar to how tables used to be used for full page layouts.</aside>
+                </section>
+
+
+                <section>
+                    <h3>Why we love Flexbox</h3>
+                    <ul>
+                        <li class="fragment">Can replace floats to align elements smoothly</li>
+                        <li class="fragment">Automatic distribution of extra space</li>
+                        <li class="fragment">Vertical centering!! </li>
+                        <li class="fragment">Less code! More efficiency and less calculations of paddings, margins, widths</li>
+                    </ul>
+                
+                    <!-- Speaker Notes -->
+                    <aside class="notes">Floats are not a layout system at all but developers found how useful they could be in laying out elements inline to each other and hacked it to be a layout system similar to how tables used to be used for full page layouts.</aside>
+                </section>
+
+
+                <section>
+                    <h3>Browser Support</h3>
+                    <div><a href="http://caniuse.com/#feat=flexbox" target="_blank">caniuse.com</a></div>
+                    <div><img src="images/browser-support.jpg"></div>
+                    <div><a href="https://github.com/philipwalton/flexbugs" target="_blank">Flexbugs:</a> known browser support issues and how to work around them</div>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">
+                    - IE 10 only supports the 2012 syntax and does not support wrapping.
+                    - Light green = Partial support due to large amount of bugs present (see known issues)
+                    - I recommend Flexbugs if you are having browser specific issues
+                    </aside>
+                </section>
+
+
+                <section>
+                    <h3>Fallback Support</h3>
+
+                    <pre><code class="hljs" data-trim>
+                    .flex-container {
+                        display: flex;
+                        display: inline-block;
+                    }
+                    </code> </pre>
+
+                    <p class="left-align"> Another option: <a href="http://designkarma.co.uk/blog/using-flexbox-now">IE conditional classes</a> to apply old layout and positioning techniques targeting older IE browsers</p>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">In many cases you can simply list the fallback below the flexbox properties and the unsupported browser will skip over flexbox properties. Conditional classes can also be used for older browsers.</aside>
+                </section>
+
+
+                <section>
+                    <h3>Autoprefixer is your friend!</h3>
+                    <div><a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> lets you forget about vendor prefixes and write normal CSS according to the latest W3C specs.</div>
+                    <img src="images/prefixes.png">
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">Because there were 2 separate versions of Flexbox, writing multiple flexbox lines with all vendor prefixes can get a little crazy. Install autoprefixer in sublime or work it into your build to avoid having duplicate lines of code.</aside>
+                </section>
+
+
+                <section>
+                    <h3>Are you ready to learn some Flexbox?</h3>
+                    <div class="fragment left-align">Step 1: Download <a href="http://www.samserif.co/teach/">Class Files</a></div>
+                    <div class="fragment left-align">Step 2: Open Sandbox in Sublime</div>
+                    <div class="fragment left-align">Step 3: Code along and experiment in style.css</div>
+                    <img class="fragment" src="http://i.giphy.com/26FPzWY5I6WqElJC0.gif" alt="">
+                </section>
+      
+
+                <section>
+                    <h3>Flexbox Basics</h3> 
+                    <img src="images/flex-container.png">
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">One of the first things to learn about flexbox is the vocabulary. When you are declaring a flexbox element it is known as the flex container. Any direct child element inside that element will automatically be defined as a flex item and inherit any flex properties that are declared on the container level. The Parent-child relationship is one of the best parts and allows you to keep your code D.R.Y.</aside>
+                </section>
+
+
+                <section>
+                    <h3>The Flexbox Axes </h3>
+                    <img style="border: none; background:none; box-shadow: none;" src="images/flexbox-main.png">
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">Imagine each axis as an invisible line along which the child elements (aka flex items) are aligned. The main axis will depend on if the flex-direction is row or column whether it is left-to-right or up-to-down. The cross axis will be the opposite of the main axis. There are specific properties to control how the child elements are arranged along each axis which we will get into in a sec.</aside>
+                </section>
+
+
+                <section>
+                    <h3>Let's Get Started!</h3>
+                    <div>First, we'll look at properties for the flex container</div>
+
+                    <pre><code class="hljs" data-trim>
+                    .flex-container {
+                        display: flex;
+                    }
+                    </code></pre>  
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">Several things are happening by default all with one line of code. Defaulting to flex-direction: row; and justify-content: flex-start; </aside>
+                </section>
+
+
+                <section>
+                    <h3>Flex-Flow:</h3>
+                    <h4>A shorthand for 2 flexbox properties</h4>
+
+                    <div class="fragment">
+                    <pre><code class="hljs" data-trim contenteditable>
+                    .flex-container {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        /* is the same as:
+                           flex-direction: row;
+                           flex-wrap: nowrap;
+                        */
+                    }
+                    </code></pre>  
+                    </div>
+
+                    <ul>
+                        <li class="fragment"><strong class="blue">flex-direction:</strong style="color: white;"> establishes the main axis<br><em>values:</em> row(default) | row-reverse | column | column reverse</li>
+                        <li class="fragment"><strong class="blue">flex-wrap:</strong> allows items to wrap to another line<br><em>values:</em> nowrap(default) | wrap | wrap-reverse</li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h3>Justify-content:</h3>
+                    <div class="left-align">Alignment along the <em>main axis</em> and behavior of extra space not used by the content of the flex-items</div>
+                    <br>
+                    <div class="left-align fragment"><em>values:</em> flex-start (default) | flex-end | center | space-between | space-around</div>
+
+                    <div class="fragment">
+                    <pre><code class="hljs" data-trim>
+                    .flex-container {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: space-between;
+                    }
+                    </code></pre>  
+                    </div>
+                </section>
+
+
+                <section>
+                    <h3>Align-items:</h3>
+                    <div class="left-align">Alignment along the <em>cross axis</em> and behavior of extra space not used by the content of the flex-items</div>
+                    <br>
+                    <p class="left-align fragment"><em>values:</em> stretch (default) | flex-start | flex-end | center | baseline</p>
+
+                    <div class="fragment">
+                    <pre><code class="hljs" data-trim>
+                    .flex-container {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                    </code></pre>  
+                    </div>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">These 4 properties are the meat & potatoes of flexbox and with these you can already start making flexible elements which we will practice next.</aside>
+                </section>
+
+
+                <!--  Come back to this slide if there is extra time                
+                <section>
+                    <h3>Align-content:</h3>
+                    <div class="left-align">Behavior of extra space in the <em>cross axis</em> only when you have multiple lines in a container</div>
+                    <br>
+                    <div class="left-align fragment"><em>values:</em> stretch (default) | flex-start | flex-end | center | space-between | space-around</div><br>
+                    <div class="left-align fragment"><small>Note, this property has no effect when the flexbox has only a single line.</small> </div>
+
+                    <div class="fragment">
+                    <pre><code class="hljs" data-trim>
+                    .flex-container {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: space-between;
+                        align-content: space-between;
+                    }
+                    </code></pre>  
+                    </div>
+                 </section> -->
+
+
+                <section>
+                    <h3>Let's Develop It</h3>
+                    <p>Drag the 'exercise' folder into your text editor and complete the following exercises:</p>
+                    <ul>
+                        <li><strong class="blue">Exercise 1:</strong> Create a horizontal navigation with all links at the top right of the page.
+                        <br>
+                        <strong>Bonus:</strong> Create a media query (min-width: 320px) so the navigation is stacked and center aligned on mobile.</li>
+                        <br>
+                        <li><strong class="blue">Exercise 2:</strong> Center the headline horizontally and vertically in the hero image.<br>
+                        <strong>Bonus:</strong> Add a call-to-action button (Read More) centered under the headline.</li>
+                    </ul>                    
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">Work through these exercise for the next 10mins or so using the flexbox properties we learned. There can be multiple solutions for these so don't worry if yours looks different from your neighbors. Help each other and don't be afraid to ask a TA for help if you're stuck. If you get really lost you can add style-ANSWER.css to see one possible solution.</aside>
+                </section>
+
+                <section>
+                    <h3>Let's Develop It</h3>
+                    <img src="images/exercise1.png">
+                </section>
+
+
+                 <section>
+                    <h3>What about Flex Items?</h3>
+                    <div>Now, we'll look at properties you can apply to individual flex items to override the flex properties applied to the parent element.</div>
+                    <img src="images/flex-container.png">
+                 </section>
+
+
+                <section>
+                    <h3>Order:</h3>
+                    <ul>
+                        <li class="fragment">Controls the order in which the items appear </li>
+                        <li class="fragment">Does NOT change the source order</li>
+                        <li class="fragment">All items default to order: 0</li>
+                    </ul>
+                    <div class="fragment"><em>value:</em> (any positive or negative integer)</div>
+
+                    <pre class="fragment"><code class="hljs" data-trim>
+                    .item1 {
+                        order: 2;
+                    }
+
+                    .item2 {
+                        order: -4;
+                    }
+                    </code></pre>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">Make sure not to use on text or content that the user might want to copy/paste because the source order is not changing.</aside>
+                 </section>
+
+
+                <section>
+                    <h3>Align-self:</h3>
+                    <p class="left-align">Overrides the align-items property set on the flexbox container</p>
+                    <div class="left-align"><em>value:</em> flex-start | flex-end | center | stretch | baseline</div>
+
+                    <pre><code class="hljs" data-trim>
+                    .flex-container {
+                        align-items: center;
+                    }
+
+                    .item1 {
+                        align-self: flex-start;
+                    }
+                    </code></pre>
+                </section>
+
+
+                <section>
+                    <h3>Auto Margins and Flexbox</h3>
+                    <p>Setting a margin: auto on a flex item can be used to position the flex item using the available extra space.</p>
+                    <div><img style="border: none; background:none; box-shadow: none;"src="images/auto-margin-left.png"></div>
+
+                     <pre><code class="hljs" data-trim>
+                    .item2 {
+                        margin-left: auto;
+                    }
+                    </code></pre>
+                </section>
+
+                
+                <section>
+                    <h3>Auto Margins and Flexbox</h3>
+                    <div><img style="border: none; background:none; box-shadow: none;"src="images/auto-margin-both.png"></div>
+
+                     <pre><code class="hljs" data-trim>
+                    .item1 {
+                        margin-left: auto;
+                    }
+                    </code></pre>
+                </section>
+
+
+                <section>
+                    <h3>Let's Develop It</h3>
+                    <ul>
+                        <li><strong class="blue">Exercise 3:</strong> Change the About section with the image aligned to the right of the text.<br>
+                        <strong>Bonus:</strong> Change the order of the About section to have the picture stack on top of the text in smaller devices</li>
+                    </ul>
+                    <img src="images/exercise3.png">
+                </section>
+
+
+                <section>
+                    <h3>Flexibility</h3>
+                    <blockquote class="left-align">"The defining aspect of flex layout is the ability to make the flex items <span class="blue">“flex”, altering their width/height to fill the available space</span> in the main dimension. A flex container <span class="blue">distributes free space</span> to its items proportional to their <span class="blue">flex grow</span> factor, or shrinks them to prevent overflow proportional to their <span class="blue">flex shrink factor.</span>"</blockquote>
+                    <div> - W3C</div>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">This is definitely the most difficult aspect of flexbox but its also one of the most powerful concepts. The extra space is distributed proprotional, as seen in space-between or space-around but you can control on individual flex items.</aside>
+                 </section>
+
+
+                 <section>
+                    <h3>3 Flex properties</h3>
+                    <ul>
+                        <li class="fragment"><strong style="color:#3e999f;">flex-grow:</strong> specifies the flex grow factor of a flex item. <em>Default is 0.</em></li>
+                        <li class="fragment"><strong style="color:#3e999f;">flex-shrink:</strong> specifies the flex shrink factor of a flex item. <em>Default is 1.</em></li>
+                        <li class="fragment"><strong style="color:#3e999f;">flex-basis:</strong> specifies the initial size of the flex item, before any available space is distributed according to the flex factors. <em>Default is 0.</em></li>
+                    </ul>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">Depending on how much space the content along an axis takes up, the extra space will be distributed equally depending on how you specify the flex-container. If you have a 500px container with 2 100px wide items ther extra 300px will equally be divide among the items if they are both flex: 1. If one item has flex grow: 1 it will take up 20px extra instead of 10px.</aside>
+                </section>
+
+
+                <section>
+                    <h3>A closer look at how the flex proportional values work</h3>
+                    <div>
+                        <img src="images/proportions.png">
+                     </div> 
+
+                     <!-- Speaker Notes -->
+                    <aside class="notes">Auto will size the flex item based on its contents and distribute extra space around it. 0 will apply the extra space to the entire flex item regardless of content.</aside>
+                </section>
+
+
+                <section>
+                    <h3>Flex Shorthand</h3>
+                    <div>Recommended for setting all of the flex properties</div>
+
+                    <pre><code class="hljs" data-trim>
+                    .flex-item {
+                        flex: 0 0 auto;
+                    }
+
+                    /* is equal to */
+                    .flex-item {
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                        flex-basis: auto;
+                    }
+                    </code></pre>
+                </section>
+
+
+                <section>
+                    <h3>Basic Flex Values</h3>
+                    <p class="left-align">There are 4 default values for flex properties:</p>
+                    <div>
+                        <ul>
+                            <li><strong style="color:#3e999f;";>flex:</strong> initial; /* (Equivalent to flex: 0 1 auto) */</li>
+                            <li><strong style="color:#3e999f;">flex:</strong> auto; /* (Equivalent to flex: 1 1 auto) */</li>
+                            <li><strong style="color:#3e999f;">flex:</strong> none; /* (Equivalent to flex: 0 0 auto) */</li>
+                            <li><strong style="color:#3e999f;">flex:</strong> 'integer'; /* (Equivalent to flex: 'integer' 1 0) */</li>
+                        </ul>  
+                    </div>
+                    <br>
+                    <div class="left-align">For more in-depth information on the four chosen scenariors, visit this <a href="https://drafts.csswg.org/css-flexbox-1/#flex-common">section</a> of the Flexbox spec</div>
+
+                    <!-- Speaker Notes -->
+                    <aside class="notes">
+                    -Initial: Makes the flex item inflexible when there is positive free space, but allows it to shrink to its minimum size when there is insufficient space.
+                    - Auto: Sizes the item based on the width/height properties, but makes them fully flexible, so that they absorb any free space along the main axis.
+                    - None: This is similar to initial, except that flex items are not allowed to shrink, even in overflow situations.
+                    - Positive Integer: Makes the flex item flexible and sets the flex basis to zero, resulting in an item that receives the specified proportion of the free space in the flex container.
+                    </aside>
+                </section>
+
+
+                <section>
+                    <h3>Let's Develop It</h3>
+                    <ul>
+                        <li><strong class="blue">Exercise 4:</strong> Arrange the cards into a responsive grid with each card's content aligned in a column. </li>
+                    </ul>
+                    <img src="images/exercise4.png">
+                </section>
+                
+
+                <section>
+                 <h2>Resources</h2>
+                  <div class="left-align">
+                        <ul>
+                            <li>The W3C Spec: <a href="http://www.w3.org/TR/css-flexbox-1/">CSS Flexible Box Layout</a></li>
+                            <li>CSS-Tricks: <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a></li>
+                            <li><a href="http://the-echoplex.net/flexyboxes/">Flexyboxes</a>: Flexbox playground and code generator</li>
+                            <li><a href="https://github.com/philipwalton/flexbugs">Flexbugs</a>: A community-curated list of flexbox issues and cross-browser workarounds for them</li>
+                            <li><a href="http://flexboxfroggy.com/">Flexbox Froggy</a>: A fun 'frogger' computer game to learn Flexbox</li>
+                        </ul>
+                    </div>
+                </section>
+
+
+                <section>
+                  <h2>Questions?</h2>
+                  <div style = "font-size:1200%; height:100%; margin-top:20%" class ="blue">?
+                    <div class ="clear"></div></div>
+                </section>
+
+
+                <section>
+                  <h2>GDI Course Survey</h2>
+                  <p class="left-align">Your feedback is valuable. Tell us what worked and what we can improve on.</p>
+                  <div><a href="http://bit.ly/GDI-NYC">bit.ly/GDI-NYC</a></div>
+                </section>
+            </div>
+        <footer>
+        <div class="copyright">
+          Flexbox Layouts -- Girl Develop It --
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+        </div>
+
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
+'

@@ -1,0 +1,152 @@
+/* CSS Normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}p{margin: 0;}
+
+/* Box-sizing border-box */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* Some CSS Styles - nothing to do with flexbox */
+ body {
+  box-sizing: border-box;
+  background: white;
+}
+
+img {
+  width: 100%;
+}
+
+h1 {
+  font-size: 50px;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.example1 {
+  border: 10px solid #afa6ca;
+  margin: 0;
+  padding: 0;
+}
+
+.example1 li {
+  background-color: lavender;
+  list-style: none;
+  padding: 20px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.example1 li:hover {
+  background: #afa6ca;
+}
+
+.example2 {
+  background: url(https://unsplash.it/800/600/?image=43);
+  height: 420px;
+  background-size: cover;
+}
+
+.example3 {
+  padding: 25px;
+}
+
+.example3 img {
+  width: 400px;
+}
+
+.example4 .card-item {
+  background: #fafafa;
+  border: 1px solid #CECDCD;
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+
+/* Exercise 1: Create a horizontal navigation with all links at the top right of the page.
+Bonus: Create a media query (min-width: 320px) so the navigation is stacked and center aligned on mobile.
+Code goes here:; */
+
+.example1 {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: stretch;
+} 
+
+@media(max-width: 420px) {
+  .example1 {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: stretch;
+    height: auto;
+  }
+}
+
+
+
+/* Exercise 2: Center the headline horizontally and vertically in the hero image. 
+Bonus: Add a call-to-action button (Read More) centered under the headline. 
+Code goes here: */
+
+.example2 {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* Exercise 3: Change the About section with the image aligned to the right of the text.
+Bonus: Change the order of the About section to have the picture stack on top of the text in smaller devices
+Code goes here: */
+
+.example3 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.example3 p {
+  width: 50%;
+}
+
+@media(max-width: 850px) {
+  .example3 img{
+    order: -1;
+  }
+
+  /* Another option  
+  .example3 {
+    flex-flow: row-reverse wrap;
+  }*/
+
+  .example3 p {
+    width: 90%;
+  }
+}
+
+
+/* Exercise 4: Arrange the cards into a responsive grid with each card's content aligned in a column. 
+Code goes here: */
+
+.example4 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.example4 .card-item {
+  flex: 1 1 31%;
+  display: flex;
+  flex-flow: column nowrap;  
+  justify-content: space-between;
+}
+
+ 

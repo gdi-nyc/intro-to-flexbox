@@ -37,8 +37,18 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
   /*display: flex;*/
 }
 
-
-
+/* Flex example */
+/* 
+.box1 { 
+  flex: 0 1 auto;
+}
+.box2 { 
+  flex: 0 1 auto;
+}
+.box3 { 
+  flex: 0 1 auto;
+}
+ */
 
 
 

@@ -140,7 +140,7 @@
 
                 <section>
                     <h3>Browser Support</h3>
-                    <div><a href="http://caniuse.com/#feat=flexbox" target="_blank">caniuse.com</a></div>
+                    <div><a href="https://caniuse.com/#feat=flexbox" target="_blank">caniuse.com</a></div>
                     <div><img src="images/browser-support.jpg"></div>
                     <div><a href="https://github.com/philipwalton/flexbugs" target="_blank">Flexbugs:</a> known browser support issues and how to work around them</div>
 
@@ -182,7 +182,7 @@
 
                 <section>
                     <h3>Are you ready to learn some Flexbox?</h3>
-                    <div class="fragment left-align">Step 1: Download <a href="http://www.samserif.co/teach/">Class Files</a></div>
+                    <div class="fragment left-align">Step 1: Download <a href="http://www.samserif.co/lib/teaching/flexbox-class-files.zip">Class Files</a></div>
                     <div class="fragment left-align">Step 2: Open Sandbox in Sublime</div>
                     <div class="fragment left-align">Step 3: Code along and experiment in style.css</div>
                     <img class="fragment" src="http://i.giphy.com/26FPzWY5I6WqElJC0.gif" alt="">
@@ -213,14 +213,47 @@
 
                     <pre><code class="hljs" data-trim>
                     .flex-container {
-                        display: flex;
+                        display: flex; /* or inline-flex */
                     }
                     </code></pre>  
 
                     <!-- Speaker Notes -->
                     <aside class="notes">Several things are happening by default all with one line of code. Defaulting to flex-direction: row; and justify-content: flex-start; </aside>
                 </section>
+                
+                <section>
+                    <h3>Flex-Direction</h3>
+                    <h4>Establishes the direction of the main axis</h4>
 
+                    <div class="fragment">
+                    <pre><code class="hljs" data-trim contenteditable>
+                    .flex-container {
+                        display: flex;
+                        flex-direction: row;
+                        /* values:
+                           row(default) | row-reverse | column | column-reverse
+                        */
+                    }
+                    </code></pre>  
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Flex-Wrap</h3>
+
+                    <div class="fragment">
+                    <pre><code class="hljs" data-trim contenteditable>
+                    .flex-container {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        /* values:
+                           nowrap(default) | wrap | wrap-reverse
+                        */
+                    }
+                    </code></pre>  
+                    </div>
+                </section>
 
                 <section>
                     <h3>Flex-Flow:</h3>
@@ -238,11 +271,6 @@
                     }
                     </code></pre>  
                     </div>
-
-                    <ul>
-                        <li class="fragment"><strong class="blue">flex-direction:</strong style="color: white;"> establishes the main axis<br><em>values:</em> row(default) | row-reverse | column | column reverse</li>
-                        <li class="fragment"><strong class="blue">flex-wrap:</strong> allows items to wrap to another line<br><em>values:</em> nowrap(default) | wrap | wrap-reverse</li>
-                    </ul>
                 </section>
 
 
@@ -250,14 +278,16 @@
                     <h3>Justify-content:</h3>
                     <div class="left-align">Alignment along the <em>main axis</em> and behavior of extra space not used by the content of the flex-items</div>
                     <br>
-                    <div class="left-align fragment"><em>values:</em> flex-start (default) | flex-end | center | space-between | space-around</div>
-
+                    
                     <div class="fragment">
                     <pre><code class="hljs" data-trim>
                     .flex-container {
                         display: flex;
                         flex-flow: row wrap;
-                        justify-content: space-between;
+                        justify-content: flex-start;
+                        /* values:
+                           flex-start (default) | flex-end | center | space-between | space-around | space-evenly;
+                        */
                     }
                     </code></pre>  
                     </div>
@@ -267,8 +297,7 @@
                 <section>
                     <h3>Align-items:</h3>
                     <div class="left-align">Alignment along the <em>cross axis</em> and behavior of extra space not used by the content of the flex-items</div>
-                    <br>
-                    <p class="left-align fragment"><em>values:</em> stretch (default) | flex-start | flex-end | center | baseline</p>
+                    <br>                
 
                     <div class="fragment">
                     <pre><code class="hljs" data-trim>
@@ -276,7 +305,10 @@
                         display: flex;
                         flex-flow: row nowrap;
                         justify-content: space-between;
-                        align-items: center;
+                        align-items: stretch;
+                        /* values:
+                           flex-start | flex-end | center | baseline | stretch (default);
+                        */
                     }
                     </code></pre>  
                     </div>
@@ -284,28 +316,6 @@
                     <!-- Speaker Notes -->
                     <aside class="notes">These 4 properties are the meat & potatoes of flexbox and with these you can already start making flexible elements which we will practice next.</aside>
                 </section>
-
-
-                <!--  Come back to this slide if there is extra time                
-                <section>
-                    <h3>Align-content:</h3>
-                    <div class="left-align">Behavior of extra space in the <em>cross axis</em> only when you have multiple lines in a container</div>
-                    <br>
-                    <div class="left-align fragment"><em>values:</em> stretch (default) | flex-start | flex-end | center | space-between | space-around</div><br>
-                    <div class="left-align fragment"><small>Note, this property has no effect when the flexbox has only a single line.</small> </div>
-
-                    <div class="fragment">
-                    <pre><code class="hljs" data-trim>
-                    .flex-container {
-                        display: flex;
-                        flex-flow: row wrap;
-                        justify-content: space-between;
-                        align-content: space-between;
-                    }
-                    </code></pre>  
-                    </div>
-                 </section> -->
-
 
                 <section>
                     <h3>Let's Develop It</h3>
@@ -363,7 +373,6 @@
                 <section>
                     <h3>Align-self:</h3>
                     <p class="left-align">Overrides the align-items property set on the flexbox container</p>
-                    <div class="left-align"><em>value:</em> flex-start | flex-end | center | stretch | baseline</div>
 
                     <pre><code class="hljs" data-trim>
                     .flex-container {
@@ -372,6 +381,9 @@
 
                     .item1 {
                         align-self: flex-start;
+                        /* values:
+                           auto | flex-start | flex-end | center | baseline | stretch;
+                        */
                     }
                     </code></pre>
                 </section>
@@ -420,6 +432,24 @@
                     <!-- Speaker Notes -->
                     <aside class="notes">This is definitely the most difficult aspect of flexbox but its also one of the most powerful concepts. The extra space is distributed proprotional, as seen in space-between or space-around but you can control on individual flex items.</aside>
                  </section>
+   
+                <section>
+                    <h3>Flex Shorthand</h3>
+                    <div>Recommended for setting all of the flex properties</div>
+
+                    <pre><code class="hljs" data-trim>
+                    .flex-item {
+                        flex: 0 0 auto;
+                    }
+
+                    /* is equal to */
+                    .flex-item {
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                        flex-basis: auto;
+                    }
+                    </code></pre>
+                </section>
 
 
                  <section>
@@ -444,26 +474,6 @@
                      <!-- Speaker Notes -->
                     <aside class="notes">Auto will size the flex item based on its contents and distribute extra space around it. 0 will apply the extra space to the entire flex item regardless of content.</aside>
                 </section>
-
-
-                <section>
-                    <h3>Flex Shorthand</h3>
-                    <div>Recommended for setting all of the flex properties</div>
-
-                    <pre><code class="hljs" data-trim>
-                    .flex-item {
-                        flex: 0 0 auto;
-                    }
-
-                    /* is equal to */
-                    .flex-item {
-                        flex-grow: 0;
-                        flex-shrink: 0;
-                        flex-basis: auto;
-                    }
-                    </code></pre>
-                </section>
-
 
                 <section>
                     <h3>Basic Flex Values</h3>
